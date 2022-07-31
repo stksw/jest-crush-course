@@ -34,11 +34,11 @@ describe('#getBeverage', () => {
     spy.mockRestore(); // Math.random()をオリジナルの関数に戻す
   })
 
-  test('return beer when age is 20', () => {
+  test('return beer when age is 20 old', () => {
     expect(getBeverage(adult).name).toBe('beer');
   })
 
-  it('return cola when age is 20', () => {
+  it('return cola when age is 20 old', () => {
     expect(getBeverage(adult).name).toBe('cola');
   })
 });
