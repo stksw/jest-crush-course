@@ -30,26 +30,3 @@ test('are the same value', () => {
   expect(can1.ounces).toBe(can2.ounces);
   expect(can1.ounces).toEqual(can2.ounces);
 });
-
-// const fetchData1 = () => Promise.resolve('lemon');
-
-// test('resolves to lemon', () => {
-//   return expect(fetchData1()).resolves.toBe('lemon');
-// })
-// // returnが必要
-// test('resolves to lemon', () => {
-//   return expect(fetchData1()).resolves.toBe('lemon');
-// })
-
-// // async/awaitを使う場合
-// test('resolves to lemon with async/await', async () => {
-//   await expect(fetchData1()).resolves.toBe('lemon');
-// })
-
-// const fetchData2 = (category = 'fruit') => category === 'fruit'
-//   ? Promise.resolve('lemon')
-//   : Promise.reject(new Error('not exist'));
-
-// test('rejects with fish', () => {
-//   return expect(fetchData2('fish')).rejects.toThrow('not exist');
-// })
