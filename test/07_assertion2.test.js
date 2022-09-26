@@ -30,9 +30,13 @@ test('throw Error when passing no variable', () => {
 
   // インスタンスを作成する際に引数がないため、undefinedとなるオブジェクトの
   // プロパティへの参照が発生して、TypeErrorで失敗する
+
+  // babelrcにnodeの設定がなければ、下記のエラーメッセージになる
+  // const nodeErrorMessage = "Cannot read properties of undefined (reading 'message')";
+  const nodeErrorMessage =
+    "Cannot destructure property 'message' of 'undefined' as it is undefined.";
+
   expect(() => new Foo()).toThrow();
   expect(() => new Foo()).toThrow(TypeError);
-  expect(() => new Foo()).toThrow(
-    "Cannot destructure property 'message' of 'undefined' as it is undefined."
-  );
+  expect(() => new Foo()).toThrow(nodeErrorMessage);
 });
