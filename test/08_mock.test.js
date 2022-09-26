@@ -1,4 +1,4 @@
-import { greet } from '../08_mock_greeter';
+import greeter, { greet } from '../08_mock_greeter';
 
 describe('#jest.fn', () => {
   it('check jest.fn specification', () => {
@@ -87,5 +87,33 @@ describe('#greeter', () => {
       Date = jest.fn(() => morningTime);
       expect(greet('daniel')).toEqual('Good morning Daniel!');
     });
+  });
+});
+
+// babel-plugin-rewireを使うことでプライベート関数にアクセスできる
+describe('#capitalize', () => {
+  const capitalize = greeter.__get__('capitalize');
+  it('return string which the first char is capitalized', () => {
+    expect(capitalize('maru')).toBe('Maru');
+  });
+});
+
+// プライベート関数のモック化
+describe('#testing greet function with babel-plugin-rewire', () => {
+  const noonTime = new Date('2020-10-10T12:00:00');
+
+  beforeAll(() => {
+    greeter.__set__({
+      capitalize: jest.fn().mockImplementation(() => 'REWIRE'),
+    });
+  });
+
+  afterAll(() => {
+    greeter.__ResetDependency__('capitalize');
+  });
+
+  it('return `Hello REWIRE`', () => {
+    Date = jest.fn(() => noonTime);
+    expect(greet('rewire')).toBe('Hello REWIRE!');
   });
 });
