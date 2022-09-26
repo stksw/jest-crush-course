@@ -35,7 +35,7 @@ describe('e2e test with selenium', () => {
 
   it('When using Chrome, the search keyword would be the title in the page on google.com', async () => {
     await chromeDriver.get('https://google.com/ncr');
-    await chromeDriver.findElement(By.name('q')).sendKey('webdriver', Key.RETURN);
+    await chromeDriver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
 
     const results = await chromeDriver.wait(until.titleIs('webdriver - Google Search'), 5000);
     expect(results).toBe(true);
