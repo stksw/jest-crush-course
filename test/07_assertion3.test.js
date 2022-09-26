@@ -4,7 +4,7 @@ const fetchDataWithCallback = (callback) => {
 };
 
 // callbackを使ったテストではdone()を実行する必要がある
-test('return lemon', () => {
+test('return lemon', (done) => {
   const callbackFn = (data) => {
     expect(data).toBe('lemon');
     done();
@@ -24,9 +24,7 @@ test('resolves to lemon with async/await', async () => {
 });
 
 const fetchData2 = (category = 'fruit') =>
-  category === 'fruit'
-    ? Promise.resolve('lemon')
-    : Promise.reject(new Error('not exist'));
+  category === 'fruit' ? Promise.resolve('lemon') : Promise.reject(new Error('not exist'));
 
 test('rejects with fish', () => {
   return expect(fetchData2('fish')).rejects.toThrow('not exist');
