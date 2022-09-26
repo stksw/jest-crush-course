@@ -26,6 +26,7 @@
     "jest-junit": "^14.0.1",
     "jest-puppeteer": "^6.1.1",
     "jsdom": "^20.0.0",
+    "puppeteer": "^18.0.5",
     "react-test-renderer": "^18.2.0",
     "selenium-webdriver": "^4.4.0"
   },
