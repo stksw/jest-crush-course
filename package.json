@@ -21,6 +21,8 @@
     "husky": "^8.0.1",
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
+    "jest-junit": "^14.0.1",
+    "jest-puppeteer": "^6.1.1",
     "jsdom": "^20.0.0",
     "react-test-renderer": "^18.2.0"
   },
