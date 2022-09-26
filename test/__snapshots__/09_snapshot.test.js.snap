@@ -1,21 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot test renders correctly with @testing-library/react 1`] = `undefined`;
-
-exports[`snapshot test renders correctly with react-test-renderer 1`] = `
-<button
-  onClick={[Function]}
-  style={
-    Object {
-      "backgroundColor": "green",
-      "color": "white",
-    }
-  }
->
-  ON
-</button>
-`;
-
 exports[`snapshot test1 renders correctly with react-test-renderer 1`] = `
 <button
   onClick={[Function]}
