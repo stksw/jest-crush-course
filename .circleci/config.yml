@@ -11,8 +11,8 @@ jobs:
       - browser-tools/install-chrome
       - browser-tools/install-firefox
       - run:
-        name: Install dependencies
-        command: npm install
+          name: Install dependencies
+          command: npm install
       - run:
-        name: Run test
-        command: npm run test
+          name: Run test
+          command: npm run test
