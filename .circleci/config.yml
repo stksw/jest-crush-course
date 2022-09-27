@@ -23,8 +23,21 @@ jobs:
           key: node-v1-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
           name: Run test
-          command: npm run test -- --coverage
+          command: npm run test -- --coverage --maxWorkers=2
       - codecov/upload:
           file: reports/coverage/clover.xml
       - store_test_results:
           path: reports
+      - run:
+          name: show max memory usage
+          command: cat /sys/fs/cgroup/memory/memory.max_usage_in_bytes
+          when: always
+      - run:
+          name: show current processes
+              command: |
+                while true; do
+                  sleep 5
+                  ps auxwwf
+                  echo "======"
+                done
+              background: true
