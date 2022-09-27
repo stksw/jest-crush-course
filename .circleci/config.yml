@@ -1,7 +1,18 @@
 version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.1.0
+
 jobs:
   build:
     docker:
       - image: cimg/node:12.18.4
     steps:
       - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-firefox
+      - run:
+        name: Install dependencies
+        command: npm install
+      - run:
+        name: Run test
+        command: npm run test
