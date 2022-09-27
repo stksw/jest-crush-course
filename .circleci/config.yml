@@ -10,9 +10,19 @@ jobs:
       - checkout
       - browser-tools/install-chrome
       - browser-tools/install-firefox
+      - restore_cache:
+        keys:
+          - node-v1-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
           command: npm install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: node-v1-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
           name: Run test
-          command: npm run test
+          command: npm run test -- --coverage
+      - codecov/upload
+          file: reports/coverage/coverage-final.xml
+
