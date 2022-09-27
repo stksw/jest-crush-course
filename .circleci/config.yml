@@ -34,10 +34,10 @@ jobs:
           when: always
       - run:
           name: show current processes
-            command: | 
-              while true; do
-                sleep 5
-                ps auxwwf
-                echo "======"
-              done
-              background: true
+          command: |
+            while true; do
+              sleep 5
+              ps auxwwf
+              echo "======"
+            done
+            background: true
