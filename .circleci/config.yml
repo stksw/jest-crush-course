@@ -23,6 +23,5 @@ jobs:
       - run:
           name: Run test
           command: npm run test -- --coverage
-      - codecov/upload
+      - codecov/upload:
           file: reports/coverage/coverage-final.xml
-
