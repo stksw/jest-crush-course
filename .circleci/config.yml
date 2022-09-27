@@ -28,16 +28,16 @@ jobs:
           file: reports/coverage/clover.xml
       - store_test_results:
           path: reports
-      - run:
-          name: show max memory usage
-          command: cat /sys/fs/cgroup/memory/memory.max_usage_in_bytes
-          when: always
-      - run:
-          name: show current processes
-          command: |
-            while true; do
-              sleep 5
-              ps auxwwf
-              echo "======"
-            done
-            background: true
+      # - run:
+      #     name: show max memory usage
+      #     command: cat /sys/fs/cgroup/memory/memory.max_usage_in_bytes
+      #     when: always
+      # - run:
+      #     name: show current processes
+      #     command: |
+      #       while true; do
+      #         sleep 5
+      #         ps auxwwf
+      #         echo "======"
+      #       done
+      #       background: true
